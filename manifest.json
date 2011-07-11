@@ -1,5 +1,5 @@
 ﻿{
-  "name" : "Rage Faces for Gmail chat",
+  "name" : "Rage Faces for Gmail™ chat",
   "version" : "1.0",
   "description" : "Makes rage faces available in Gmail chat. (Use ra.ge/[keyword] to insert)",
   "content_scripts" : [

@@ -3,8 +3,6 @@ function RAGEbuildSelector(kw) {
 }
 
 function RAGEinjectCSS(styleScript) {
-	console.log("rages: starting!");
-
 	var rageStyles = '';
 	var rageIndex  = styleScript.indexOf('a[href=');
 	var keyWords   = [];
@@ -25,7 +23,6 @@ function RAGEinjectCSS(styleScript) {
 						keyword = keyword + styleScript.charAt(rageIndex);
 						rageIndex += 1;
 					}
-					console.log(keyword);
 					theseKeywords.push(keyword);
 
 					rageIndex += 2; /* '"]'*/
@@ -56,15 +53,12 @@ function RAGEinjectCSS(styleScript) {
 	keyWords.forEach(function (kw) {
 		allRageSelector = allRageSelector + RAGEbuildSelector(kw) + ', ';
 	});
-	
-	console.log(allRageSelector);
 
 	rageStyles = rageStyles + '\n' + allRageSelector.slice(0, allRageSelector.length - 2) + '{\nfont-size: 0;\ncolor: white;}';
 
 	// End this with </style>
 	// rageStyles = rageStyles + ' </style>';
 	// document.head.innerHTML = document.head.innerHTML + rageStyles;
-	//                 console.log(keyWords);
 	var styles = document.createElement('style');
 	styles.setAttribute('type', 'text/css');
 	styles.setAttribute('title', 'ragefaces');
@@ -72,8 +66,6 @@ function RAGEinjectCSS(styleScript) {
 	var headNode = document.getElementsByTagName('head')[0];
 	headNode.appendChild(styles);
 	// Whew, done!
-
-	console.log("rages: done!");
 }
 
 chrome.extension.sendRequest({'action' : 'fetchRageCSS'}, RAGEinjectCSS);
