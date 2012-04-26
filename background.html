@@ -10,7 +10,7 @@
       function fetchRageCSS(callback) {
         console.log("fetching rss");
         //This points to the f7u12 CSS file
-        var cssLive = "http://www.reddit.com/r/fffffffuuuuuuuuuuuu/stylesheet.css"
+        var cssLive = "http://www.reddit.com/r/metarage/stylesheet.css";
         
         var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function(data) {
@@ -18,7 +18,20 @@
           if (xhr.readyState == 4) {
             console.log("fetched css " + xhr.status);
             if (xhr.status == 200) {
-              callback(xhr.responseText);
+              var othercss = "http://www.reddit.com/r/AdviceAnimals/stylesheet.css";
+              var xhr2 = new XMLHttpRequest();
+              xhr2.onreadystatechange = function(data) {
+                if (xhr2.readyState == 4) {
+                  //console.log("fetched css " + xhr.status);
+                  if (xhr2.status == 200) {
+                    callback(xhr.responseText + "\n" + xhr2.responseText);
+                  } else {
+                    callback(null);
+                  }
+                }
+              }
+              xhr2.open('GET', othercss, true);
+              xhr2.send();
             } else {
               callback(null);
             }

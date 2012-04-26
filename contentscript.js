@@ -23,6 +23,7 @@ function RAGEinjectCSS(styleScript) {
 						keyword = keyword + styleScript.charAt(rageIndex);
 						rageIndex += 1;
 					}
+					//console.log("RAGES: found keyword: " + keyword);
 					theseKeywords.push(keyword);
 
 					rageIndex += 2; /* '"]'*/
