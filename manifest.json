@@ -1,12 +1,14 @@
 ﻿{
-  "name" : "Rage Faces for Gmail™ chat",
-  "version" : "1.2",
-  "description" : "Makes rage faces and memes available in Gmail chat. (Use ra.ge/[keyword] to insert)",
+  "name" : "Memechat",
+  "version" : "2.0.1",
+  "description" : "Makes rage faces and memes available in Gmail and Facebook chat. (Use ra.ge/[keyword] to insert)",
   "content_scripts" : [
     {
       "matches" : [
         "http://mail.google.com/*",
-        "https://mail.google.com/*"
+        "https://mail.google.com/*",
+        "https://www.facebook.com/*",
+        "http://www.facebook.com/*"
       ],
       "js" : ["contentscript.js"],
       "run_at" : "document_end",
