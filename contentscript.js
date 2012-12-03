@@ -69,4 +69,4 @@ function RAGEinjectCSS(styleScript) {
 	// Whew, done!
 }
 
-chrome.extension.sendRequest({'action' : 'fetchRageCSS'}, RAGEinjectCSS);
+chrome.extension.sendMessage({'action' : 'fetchRageCSS'}, RAGEinjectCSS);
